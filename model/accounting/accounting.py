@@ -32,6 +32,7 @@ def add(table, record):
     return table
 
 
+
 def remove(table, id_):
     """
     Remove a record with a given id from the table.
@@ -43,9 +44,10 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
-
+    get_table_from_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/accounting/items.csv")
+    for lists in table:  #id_ to bedzie input - musi być string
+        if id_ in lists:
+            table.remove(lists)
     return table
 
 
@@ -80,7 +82,7 @@ def which_year_max(table):
     Returns:
         number
     """
-
+    
     # your code
 
 
