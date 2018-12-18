@@ -71,11 +71,15 @@ def print_menu(title, list_options, exit_message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print(title)
+    for options in list_options:
+        print(options)
+    print(exit_message)
+    return
 
-
-def get_inputs(list_labels, title):
-    """
+#używasz funkcji jesli potzebujesz listy stringów jako input, to do hr używac
+def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do inputu
+    """                              działa!
     Gets list of inputs from the user.
     Sample call:
         get_inputs(["Name","Surname","Age"],"Please provide your personal information")
@@ -93,24 +97,30 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    inputs = []
-
     # your code
-
+    inputs = []
+    print(title)
+    for element in list_labels:
+        answer = input(element)
+        inputs.append(answer)
     return inputs
 
+<<<<<<< HEAD
 def get_choice(options):
     print_menu("Main menu", options, "Exit program")
+=======
+
+def get_choice(options):  #używasz jesli potrzebujesz wybrac jedną cyfre
+    print_menu("Main menu",options, "Exit program")
+>>>>>>> 701c46be0eb9297316684bd1fa64234856cd12a4
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 
 def print_error_message(message):
     """
     Displays an error message (example: ``Error: @message``)
-
     Args:
         message (str): error message to be displayed
-
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
