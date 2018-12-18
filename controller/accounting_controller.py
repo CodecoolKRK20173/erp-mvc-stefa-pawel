@@ -31,7 +31,6 @@ def run():
         #powrót do main menu - jak to zrobic?
     return 
 
-<<<<<<< HEAD
     # your code
     table = accounting.get_table()                                   # DLA KADEGO MODUŁU OSOBNO
     title_list = ["ID", "MONTH", "DAY", "YEAR", "TYPE", "AMOUNT"]
@@ -42,5 +41,3 @@ def run():
     # print("\n\n", table, "\n\n")
     accounting.save_table(table)
 
-=======
->>>>>>> 701c46be0eb9297316684bd1fa64234856cd12a4

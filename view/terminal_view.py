@@ -105,14 +105,9 @@ def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do in
         inputs.append(answer)
     return inputs
 
-<<<<<<< HEAD
-def get_choice(options):
-    print_menu("Main menu", options, "Exit program")
-=======
 
 def get_choice(options):  #używasz jesli potrzebujesz wybrac jedną cyfre
     print_menu("Main menu",options, "Exit program")
->>>>>>> 701c46be0eb9297316684bd1fa64234856cd12a4
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 
