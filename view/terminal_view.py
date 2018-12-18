@@ -23,6 +23,16 @@ def print_table(table, title_list):
     """
 
     # your goes code
+    data = [title_list] + table
+    for i, d in enumerate(data):
+        line = '|'.join(str(x).ljust(8) for x in d)
+        print("|", line, "|")
+        dashes = int(len(line) + 4)
+        print('-' * dashes)
+    
+
+
+
 
 
 def print_result(result, label):
@@ -90,7 +100,7 @@ def get_inputs(list_labels, title):
     return inputs
 
 def get_choice(options):
-    print_menu("Main menu",options, "Exit program")
+    print_menu("Main menu", options, "Exit program")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 
