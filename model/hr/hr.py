@@ -12,11 +12,13 @@ from model import data_manager
 from model import common
 
 def get_table():  
-    table = data_manager.get_table_from_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/hr/persons.csv")
+    table = data_manager.get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/hr/persons.csv")
     return table
 
+
 def save_table(table):
-    data_manager.write_table_to_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/hr/persons.csv", table)
+    data_manager.write_table_to_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/hr/persons.csv", table)
+
 
 def add(table, record):
     """
@@ -31,7 +33,6 @@ def add(table, record):
     """
     table = table.append(record)
     return table
-
 
 
 def remove(table, id_):
@@ -50,8 +51,6 @@ def remove(table, id_):
         if id_ in lists:  #wczesniej if id_ in lists
             table = table.remove(lists)
     return table
-
-    
 
 
 def update(table, id_, record):

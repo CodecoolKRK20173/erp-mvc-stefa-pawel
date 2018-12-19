@@ -13,7 +13,11 @@ def run():
         None
     """
 
-    list_options = ["1. add", "2. remove", "3. update", "4. get oldest"]
+    list_options = ["1. Add new record to table", 
+                    "2. Remove a record with a given id from the table", 
+                    "3. Update specified record in the table", 
+                    "4. Who is the oldest person?", 
+                    "5. Who is the closest to the average age?"]
     #tutaj prosimy o input użytkownika
     
     '''rysowanie tabeli''' 
@@ -24,7 +28,7 @@ def run():
     answer = terminal_view.get_choice(list_options)
 
     if answer == "1":
-        record = terminal_view.get_inputs(["ID","Name and surname","Date of birth"],"Please provide your personal information")
+        record = terminal_view.get_inputs(["ID: ","Name and surname: ","Date of birth: "],"Please provide information: \n")
         hr.add(table, record)
         hr.save_table(table)
     elif answer == "2":

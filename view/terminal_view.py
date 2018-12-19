@@ -26,7 +26,7 @@ def print_table(table, title_list):
     data = [title_list] + table
     longest_line_length = 0
     for i, d in enumerate(data):
-        line = '|'.join(str(x).center(5) for x in d)
+        line = '|'.join(str(x).center(15) for x in d)
         line_length = len(line)
 
         if line_length > longest_line_length:
@@ -38,10 +38,9 @@ def print_table(table, title_list):
         longest_index = data[max_i].index(longest_element)
 
     for i, d in enumerate(data):
+        line = '|'.join(str(x).center(15) for x in d)
         if d[longest_index]:
-            line = '|'.join(str(x).ljust(longest_element_len) for x in d)
-        else:
-            line = '|'.join(str(x).ljust(15) for x in d)
+            line = '|'.join(str(x).center(longest_element_len) for x in d)
         dashes = len(line)
         if i == 0:
             print("/", '-' * dashes, "\\")
@@ -52,6 +51,7 @@ def print_table(table, title_list):
         else:
             print("|", line, "|")
             print("|", '-' * dashes, "|")
+    longest_element_len = 0
 
 
 def print_result(result, label):

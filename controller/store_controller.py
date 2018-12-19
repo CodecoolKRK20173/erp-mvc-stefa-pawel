@@ -22,19 +22,20 @@ def run():
                     "4. How many different kinds of game are available of each manufacturer?", 
                     "5. What is the average amount of games in stock of a given manufacturer?"]
 
-    table = store.get_table()                                   # DLA KADEGO MODUŁU OSOBNO
+    table = store.get_table()
     title_list = ["ID", "TITLE", "MANUFACTURER", "PRICE (in $)", "IN STOCK"]
     terminal_view.print_table(table, title_list)
     
     answer = terminal_view.get_choice(list_options)
 
     if answer == "1":
-        record = ["1", "2", "3", "4", "5", "6"]
+        record = terminal_view.get_inputs(["ID: ","Title of the game: ","Manufacturer: ","Price in dollars: ","In stock (number): "],"Please provide information: \n")
         store.add(table, record)
-        accounting.save_table(table)
+        store.save_table(table)
     elif answer == "2":
-        id_ = ""
+        id_ = terminal_view.get_input("Please enter id number: ")
         store.remove(table, id_)
+        store.save_table(table)
     elif answer == "3":
         store.update(table, id_, record)
     elif answer =="4":

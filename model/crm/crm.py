@@ -13,6 +13,15 @@ from model import data_manager
 from model import common
 
 
+def get_table():
+    table = data_manager.get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/crm/customers.csv")
+    return table
+
+
+def save_table(table):
+    data_manager.write_table_to_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/crm/customers.csv", table)
+
+
 def add(table, record):
     """
     Add new record to table
@@ -25,7 +34,7 @@ def add(table, record):
         list: Table with a new record
     """
     # your code
-
+    table = table.append(record)
     return table
 
 
@@ -42,7 +51,10 @@ def remove(table, id_):
     """
 
     # your code
-
+    #get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/crm/customers.csv")
+    for lists in table:  #id_ to bedzie input - musi być string
+        if id_ in lists:
+            table.remove(lists)
     return table
 
 
