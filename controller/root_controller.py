@@ -23,8 +23,13 @@ def run():
         choice = terminal_view.get_choice(options)
         if choice == "1":
             store_controller.run()
+<<<<<<< HEAD
         elif choice == "2":
             hr_controller.run()
+=======
+    #     elif choice == "2":
+    #         hr_controller.run()
+>>>>>>> 640fd90db26e43e696db098f276862183c68ae3a
     #     elif choice == "3":
     #         inventory_controller.run()
         elif choice == "4":
