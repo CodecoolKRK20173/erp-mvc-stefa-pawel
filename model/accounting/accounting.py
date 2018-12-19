@@ -19,6 +19,7 @@ def get_table():
     table = data_manager.get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/accounting/items.csv")
     return table
 
+
 def save_table(table):
     data_manager.write_table_to_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/accounting/roboczy.csv", table)
 
@@ -51,7 +52,7 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-    get_table_from_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/accounting/items.csv")
+    get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/accounting/items.csv")
     for lists in table:  #id_ to bedzie input - musi być string
         if id_ in lists:
             table.remove(lists)

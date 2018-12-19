@@ -24,15 +24,34 @@ def print_table(table, title_list):
 
     # your goes code
     data = [title_list] + table
+    longest_line_length = 0
     for i, d in enumerate(data):
-        line = '|'.join(str(x).ljust(8) for x in d)
-        print("|", line, "|")
-        dashes = int(len(line) + 4)
-        print('-' * dashes)
-    
+        line = '|'.join(str(x).center(5) for x in d)
+        line_length = len(line)
 
+        if line_length > longest_line_length:
+            longest_line_length = line_length
+            longest_line = line
+            max_i = i
+        longest_element = max(data[max_i], key=len)
+        longest_element_len = len(longest_element)
+        longest_index = data[max_i].index(longest_element)
 
+    for i, d in enumerate(data):
+        if d[longest_index]:
+            line = '|'.join(str(x).ljust(longest_element_len) for x in d)
+        else:
+            line = '|'.join(str(x).ljust(15) for x in d)
+        dashes = len(line)
+        if i == 0:
+            print("/", '-' * dashes, "\\")
 
+        if i == len(data) - 1:
+            print("|", line, "|")
+            print("\\", '-' * dashes, "/")
+        else:
+            print("|", line, "|")
+            print("|", '-' * dashes, "|")
 
 
 def print_result(result, label):
@@ -107,7 +126,7 @@ def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do in
 
 
 def get_choice(options):  #używasz jesli potrzebujesz wybrac jedną cyfre
-    print_menu("Main menu",options, "Exit program")
+    print_menu("Main menu",options, "0. Exit program")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 
