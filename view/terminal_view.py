@@ -97,8 +97,8 @@ def print_menu(title, list_options, exit_message):
     return
 
 
-#używasz funkcji jesli potzebujesz listy stringów jako input, to do hr używac
-def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do inputu
+
+def get_inputs(list_labels, title):  #return list of elements
     """                              działa!
     Gets list of inputs from the user.
     Sample call:
@@ -126,12 +126,12 @@ def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do in
     return inputs
 
 
-def get_input(question):
+def get_input(question):  #return one object (str or int)
     answer = input(question)
     return answer
 
 
-def get_choice(options):  #używasz jesli potrzebujesz wybrac jedną cyfre
+def get_choice(options):  #return one int, only to menu
     print_menu("Main menu",options, "0. Exit program")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
@@ -144,5 +144,5 @@ def print_error_message(message):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
-
-    # your code
+    print(message)
+    

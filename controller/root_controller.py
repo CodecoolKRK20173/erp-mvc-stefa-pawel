@@ -8,7 +8,7 @@ from controller import sales_controller
 from controller import crm_controller
 from controller import common
 
-#tu stworzyc main menu
+
 def run():
     
     options = ["1. Store manager",
@@ -23,22 +23,17 @@ def run():
         choice = terminal_view.get_choice(options)
         if choice == "1":
             store_controller.run()
-<<<<<<< HEAD
         elif choice == "2":
             hr_controller.run()
-=======
-    #     elif choice == "2":
-    #         hr_controller.run()
->>>>>>> 640fd90db26e43e696db098f276862183c68ae3a
-    #     elif choice == "3":
-    #         inventory_controller.run()
+        elif choice == "3":
+            inventory_controller.run()
         elif choice == "4":
             accounting_controller.run()
-    #     elif choice == "5":
-    #         sales_controller.run()
-    #     elif choice == "6":
-    #         crm_controller.run()
-    #     else:
-    #         terminal_view.print_error_message("There is no such choice.")
+        elif choice == "5":
+            sales_controller.run()
+        elif choice == "6":
+            crm_controller.run()
+        else:
+            terminal_view.print_error_message("There is no such choice. Choose from 1 to 6")
     return
 
