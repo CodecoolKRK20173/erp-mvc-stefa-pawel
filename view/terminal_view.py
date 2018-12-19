@@ -77,6 +77,7 @@ def print_menu(title, list_options, exit_message):
     print(exit_message)
     return
 
+
 #używasz funkcji jesli potzebujesz listy stringów jako input, to do hr używac
 def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do inputu
     """                              działa!
@@ -97,13 +98,18 @@ def get_inputs(list_labels, title):  #title=pytanie, list_label=nagłówki do in
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    # your code
+    
     inputs = []
     print(title)
     for element in list_labels:
         answer = input(element)
         inputs.append(answer)
     return inputs
+
+
+def get_input(question):
+    answer = input(question)
+    return answer
 
 
 def get_choice(options):  #używasz jesli potrzebujesz wybrac jedną cyfre

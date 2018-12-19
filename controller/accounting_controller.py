@@ -3,8 +3,6 @@ from view import terminal_view
 from model.accounting import accounting
 from controller import common
 
-list_options = ["1. add", "2. remove", "3. update", "4. max year", "5. exit menu"]
-
 
 def run():
     """
@@ -15,14 +13,24 @@ def run():
     Returns:
         None
     """
-    #print_menu("Acounting menu", list_options, "Exit program") nie potrzebne bo printuje get_choice 
-    terminal_view.get_choice(list_options)
-    answer = get_choice(list_options)
+    list_options = ["1. add", "2. remove", "3. update", "4. max year", "5. exit menu"]
+    
+    
+    '''rysowanie tabeli''' 
+    table = accounting.get_table()  
+    title_list = ["ID", "MONTH", "DAY", "YEAR", "TYPE", "AMOUNT"]
+    terminal_view.print_table(table, title_list)
+    answer = terminal_view.get_choice(list_options)
 
     if answer == "1":
+        #record = ["1", "2", "3", "4", "5", "6"]
+        record = terminal_view.get_inputs(["ID","Month","Day", "Year", "Type", "Ammount"],"Please provide information")
         accounting.add(table, record)
+        accounting.save_table(table)
     elif answer == "2":
+        id_ = terminal_view.get_input("Please enter id number: ")
         accounting.remove(table, id_)
+        accounting.save_table(table)
     elif answer == "3":
         accounting.update(table, id_, record)
     elif answer =="4":
@@ -31,13 +39,8 @@ def run():
         #powrót do main menu - jak to zrobic?
     return 
 
-    # your code
-    table = accounting.get_table()                                   # DLA KADEGO MODUŁU OSOBNO
-    title_list = ["ID", "MONTH", "DAY", "YEAR", "TYPE", "AMOUNT"]
-    terminal_view.print_table(table, title_list)
+    
+    
 
-    record = ["1", "2", "3", "4", "5", "6"]
-    accounting.add(table, record)
-    # print("\n\n", table, "\n\n")
-    accounting.save_table(table)
+    
 
