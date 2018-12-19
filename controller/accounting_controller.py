@@ -19,27 +19,34 @@ def run():
                     "4. Which year has the highest profit?", 
                     "5. What is the average (per item) profit in a given year?"]
     
-    
-    '''rysowanie tabeli''' 
-    table = accounting.get_table()  
-    title_list = ["ID", "MONTH", "DAY", "YEAR", "TYPE", "AMOUNT"]
-    terminal_view.print_table(table, title_list)
-    answer = terminal_view.get_choice(list_options)
+    program_works = True
+    while program_works:
+   
+        table = accounting.get_table()  
+        title_list = ["ID", "MONTH", "DAY", "YEAR", "TYPE", "AMOUNT"]
+        terminal_view.print_table(table, title_list)
 
-    if answer == "1":
-        record = terminal_view.get_inputs(["ID: ","Month of the transaction: ","Day of the transaction: ", "Year of the transaction: ", "Type - income/outflow (in.out): ", "Amount of transaction in USD: "],"Please provide information: \n")
-        accounting.add(table, record)
-        accounting.save_table(table)
-    elif answer == "2":
-        id_ = terminal_view.get_input("Please enter id number: ")
-        accounting.remove(table, id_)
-        accounting.save_table(table)
-    elif answer == "3":
-        accounting.update(table, id_, record)
-    elif answer =="4":
-        accounting.which_year_max(table)
-    #elif answer == "0":
-        #powrót do main menu - jak to zrobic?
+        answer = terminal_view.get_choice(list_options)
+
+        if answer == "1":
+            record = terminal_view.get_inputs(["ID: ","Month of the transaction: ","Day of the transaction: ", "Year of the transaction: ", "Type - income/outflow (in.out): ", "Amount of transaction in USD: "],"Please provide information: \n")
+            accounting.add(table, record)
+            accounting.save_table(table)
+        elif answer == "2":
+            id_ = terminal_view.get_input("Please enter id number: ")
+            accounting.remove(table, id_)
+            accounting.save_table(table)
+        elif answer == "3":
+            id_ = terminal_view.get_input("Please enter id number: ")
+            record = terminal_view.get_inputs(["ID: ","Month: ","Day: ", "Year: ", "Type: ", "Ammount: "],"Please provide new information")
+            accounting.update(table, id_, record)
+            accounting.save_table(table)
+        elif answer =="4":
+            accounting.which_year_max(table)
+        elif answer == "0":
+            program_works = False
+        else:
+            terminal_view.print_error_message("There is no such choice. Choose from 1 to 5")
     return 
 
     

@@ -47,8 +47,8 @@ def remove(table, id_):
         list: Table without specified record.
     """
     
-    for lists in table:  #id_ to bedzie input - musi być string
-        if id_ in lists:  #wczesniej if id_ in lists
+    for lists in table:
+        if id_ in lists:
             table = table.remove(lists)
     return table
 
@@ -66,8 +66,10 @@ def update(table, id_, record):
         list: table with updated record
     """
 
-    # your code
-
+    for lists in table:
+        if id_ in lists:
+            table.remove(lists)
+            table.append(record)
     return table
 
 

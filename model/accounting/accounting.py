@@ -35,7 +35,6 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
     table = table.append(record)
     return table
 
@@ -52,8 +51,13 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
+<<<<<<< HEAD
     #get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/accounting/items.csv")
     for lists in table:  #id_ to bedzie input - musi być string
+=======
+    
+    for lists in table:
+>>>>>>> 170a86d6eb4d6232715e86d2cb47bc8ead7c2da2
         if id_ in lists:
             table.remove(lists)
     return table
@@ -71,9 +75,10 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
-
-    # your code
-
+    for lists in table:
+        if id_ in lists:
+            table.remove(lists)
+            table.append(record)    
     return table
 
 

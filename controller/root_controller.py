@@ -8,7 +8,7 @@ from controller import sales_controller
 from controller import crm_controller
 from controller import common
 
-#tu stworzyc main menu
+
 def run():
     
     options = ["1. Store manager",
@@ -33,7 +33,7 @@ def run():
             sales_controller.run()
         elif choice == "6":
             crm_controller.run()
-    #     else:
-    #         terminal_view.print_error_message("There is no such choice.")
+        else:
+            terminal_view.print_error_message("There is no such choice. Choose from 1 to 6")
     return
 
