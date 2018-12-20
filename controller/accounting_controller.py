@@ -41,8 +41,10 @@ def run():
             record = terminal_view.get_inputs(["ID: ","Month: ","Day: ", "Year: ", "Type: ", "Ammount: "],"Please provide new information")
             accounting.update(table, id_, record)
             accounting.save_table(table)
-        elif answer =="4":
+        elif answer == "4":
             accounting.which_year_max(table)
+        elif answer == "5":
+            accounting.avg_amount(table, year)
         elif answer == "0":
             program_works = False
         else:

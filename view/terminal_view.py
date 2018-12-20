@@ -23,35 +23,35 @@ def print_table(table, title_list):
     """
 
     # your goes code
+    max_length = []
+    for n in title_list:
+        n_length = len(n)
+        max_length.append(n_length)
+    for line in table:
+        for element in line:
+            ind = line.index(element)
+            n_length2 = len(element)
+            if n_length2 > max_length[ind]:
+                max_length[ind] = n_length2
     data = [title_list] + table
-    longest_line_length = 0
+    dashes_table = []
     for i, d in enumerate(data):
-        line = '|'.join(str(x).center(15) for x in d)
-        line_length = len(line)
-
-        if line_length > longest_line_length:
-            longest_line_length = line_length
-            longest_line = line
-            max_i = i
-        longest_element = max(data[max_i], key=len)
-        longest_element_len = len(longest_element)
-        longest_index = data[max_i].index(longest_element)
-
-    for i, d in enumerate(data):
-        line = '|'.join(str(x).center(15) for x in d)
-        if d[longest_index]:
-            line = '|'.join(str(x).center(longest_element_len) for x in d)
+        line = '|'.join(str(x).ljust(max_length[d.index(x)]) for x in d)
         dashes = len(line)
-        if i == 0:
+        dashes_table.append(dashes)
+        if dashes > dashes_table[0]:
+            dashes = dashes_table[0]
+        elif i == 0:
             print("/", '-' * dashes, "\\")
-
-        if i == len(data) - 1:
+            print("|", line, "|")
+            print("|", '-' * dashes, "|")
+        elif i == len(data) - 1:
             print("|", line, "|")
             print("\\", '-' * dashes, "/")
         else:
             print("|", line, "|")
             print("|", '-' * dashes, "|")
-    longest_element_len = 0
+    print(dashes_table)
 
 
 def print_result(result, label):
@@ -132,7 +132,7 @@ def get_input(question):  #return one object (str or int)
 
 
 def get_choice(options):  #return one int, only to menu
-    print_menu("Main menu",options, "0. Exit program")
+    print_menu("Main menu",options, "0. Exit")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 

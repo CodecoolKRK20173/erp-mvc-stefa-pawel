@@ -51,13 +51,8 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-<<<<<<< HEAD
-    #get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/accounting/items.csv")
-    for lists in table:  #id_ to bedzie input - musi być string
-=======
     
     for lists in table:
->>>>>>> 170a86d6eb4d6232715e86d2cb47bc8ead7c2da2
         if id_ in lists:
             table.remove(lists)
     return table
