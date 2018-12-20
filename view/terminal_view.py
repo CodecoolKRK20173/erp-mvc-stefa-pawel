@@ -132,7 +132,7 @@ def get_input(question):  #return one object (str or int)
 
 
 def get_choice(options):  #return one int, only to menu
-    print_menu("Main menu",options, "0. Exit program")
+    print_menu("Main menu",options, "0. Exit")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 

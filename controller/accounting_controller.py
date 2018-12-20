@@ -30,16 +30,16 @@ def run():
 
         if answer == "1":
             record = terminal_view.get_inputs(["ID: ","Month of the transaction: ","Day of the transaction: ", "Year of the transaction: ", "Type - income/outflow (in.out): ", "Amount of transaction in USD: "],"Please provide information: \n")
-            accounting.add(table, record)
+            common.add(table, record)
             accounting.save_table(table)
         elif answer == "2":
             id_ = terminal_view.get_input("Please enter id number: ")
-            accounting.remove(table, id_)
+            common.remove(table, id_)
             accounting.save_table(table)
         elif answer == "3":
             id_ = terminal_view.get_input("Please enter id number: ")
             record = terminal_view.get_inputs(["ID: ","Month: ","Day: ", "Year: ", "Type: ", "Ammount: "],"Please provide new information")
-            accounting.update(table, id_, record)
+            common.update(table, id_, record)
             accounting.save_table(table)
         elif answer =="4":
             accounting.which_year_max(table)

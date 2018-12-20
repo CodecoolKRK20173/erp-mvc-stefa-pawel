@@ -30,16 +30,16 @@ def run():
 
         if answer == "1":
             record = terminal_view.get_inputs(["ID: ","Name and surname: ","Date of birth: "],"Please provide your personal information")
-            hr.add(table, record)
+            common.add(table, record)
             hr.save_table(table)
         elif answer == "2":
             id_ = terminal_view.get_input("Please enter id number: ")
-            hr.remove(table, id_)
+            common.remove(table, id_)
             hr.save_table(table)
         elif answer == "3":
             id_ = terminal_view.get_input("Please enter id number: ")
             record = terminal_view.get_inputs(["ID: ","Name and surname: ", "Year of birth: "],"Please provide new information")
-            hr.update(table, id_, record)
+            common.update(table, id_, record)
             hr.save_table(table)
         elif answer =="4":
             hr.get_oldest_person(table)

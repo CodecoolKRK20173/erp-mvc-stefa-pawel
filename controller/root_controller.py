@@ -33,6 +33,8 @@ def run():
             sales_controller.run()
         elif choice == "6":
             crm_controller.run()
+        elif choice == "0":
+            return
         else:
             terminal_view.print_error_message("There is no such choice. Choose from 1 to 6")
     return
