@@ -15,12 +15,12 @@ from model import common
 
 
 def get_table():
-    table = data_manager.get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/store/games.csv")
+    table = data_manager.get_table_from_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/store/games.csv")
     return table
 
 
 def save_table(table):
-    data_manager.write_table_to_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/store/games.csv", table)
+    data_manager.write_table_to_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/store/games.csv", table)
 
 
 def add(table, record):

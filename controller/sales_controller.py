@@ -20,25 +20,34 @@ def run():
                     "4. What is the id of the item that was sold for the lowest price?", 
                     "5. Which items are sold between two given dates?"]
     
-    '''rysowanie tabeli''' 
-    table = sales.get_table()  
-    title_list = ["ID", "TITLE", "PRICE","MONTH","DAY","YEAR"]
-    terminal_view.print_table(table, title_list)
+    program_works = True
 
-    answer = terminal_view.get_choice(list_options)
+    while program_works:
+        table = sales.get_table()  
+        title_list = ["ID", "TITLE", "PRICE","MONTH","DAY","YEAR"]
+        terminal_view.print_table(table, title_list)
 
-    if answer == "1":
-        record = terminal_view.get_inputs(["ID: ","Title of the game sold: ","The actual sale price in USD: ","Month of the sale: ","Day of the sale: ","Year of the sale: "],"Please provide information: \n")
-        sales.add(table, record)
-        sales.save_table(table)
-    elif answer == "2":
-        id_ = terminal_view.get_input("Please enter id number: ")
-        sales.remove(table, id_)
-        sales.save_table(table)
-    elif answer == "3":
-        sales.update(table, id_, record)
-    elif answer == "4":
-        sales.get_oldest_person(table)
-    #elif answer == "5":
-        #powrót do main menu - jak to zrobic?
+        answer = terminal_view.get_choice(list_options)
+
+        if answer == "1":
+            record = terminal_view.get_inputs(["ID: ","Title of the game sold: ","The actual sale price in USD: ","Month of the sale: ","Day of the sale: ","Year of the sale: "],"Please provide information: \n")
+            common.add(table, record)
+            sales.save_table(table)
+        elif answer == "2":
+            id_ = terminal_view.get_input("Please enter id number: ")
+            common.remove(table, id_)
+            sales.save_table(table)
+        elif answer == "3":
+            id_ = terminal_view.get_input("Please enter id number: ")
+            record = terminal_view.get_inputs(["ID: ","Title of the game sold: ","The actual sale price in USD: ","Month of the sale: ","Day of the sale: ","Year of the sale: "],"Please provide information: \n")
+            common.update(table, id_, record)
+            sales.save_table(table)
+        elif answer == "4":
+            sales.get_oldest_person(table)
+        elif answer == "5":
+            sales.get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to)
+        elif answer == "0":
+            program_works = False
+        else:
+            terminal_view.print_error_message("There is no such choice. Choose from 1 to 5")
     return 

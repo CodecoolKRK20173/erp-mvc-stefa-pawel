@@ -12,12 +12,12 @@ from model import data_manager
 from model import common
 
 def get_table():  
-    table = data_manager.get_table_from_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/hr/persons.csv")
+    table = data_manager.get_table_from_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/hr/persons_test.csv")
     return table
 
 
 def save_table(table):
-    data_manager.write_table_to_file("/home/pawel/Pulpit/5WEEK/erp-mvc-stefa-pawel/model/hr/persons.csv", table)
+    data_manager.write_table_to_file("/home/stefania/Desktop/current week/erp-mvc-stefa-pawel/model/hr/persons_test.csv", table)
 
 
 def add(table, record):
@@ -86,7 +86,13 @@ def get_oldest_person(table):
     Returns:
         list: A list of strings (name or names if there are two more with the same value)
     """
-
+    years = []
+    for lists in table:
+        years.append(int(lists[2]))
+        oldest_person = min(years)
+    for lists in table:
+        if oldest_person == lists[2]:
+            return lists
     # your code
 
 

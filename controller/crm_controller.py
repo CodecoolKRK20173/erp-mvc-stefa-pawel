@@ -19,26 +19,29 @@ def run():
                     "5. Which customers has subscribed to the newsletter?"]
     
     
-    '''rysowanie tabeli''' 
-    table = crm.get_table()  
-    title_list = ["ID", "NAME", "EMAIL", "SUBSCRIBED? y/n",]
-    terminal_view.print_table(table, title_list)
-    answer = terminal_view.get_choice(list_options)
+    program_works = True
+    while program_works:
+        table = crm.get_table()  
+        title_list = ["ID", "NAME", "EMAIL", "SUBSCRIBED? y/n",]
+        terminal_view.print_table(table, title_list)
+        answer = terminal_view.get_choice(list_options)
 
-    if answer == "1":
-        record = terminal_view.get_inputs(["ID: ","Name: ","E-mail: ", "Subscription? Yes/ No"],"Please provide information: \n")
-        crm.add(table, record)
-        crm.save_table(table)
-    elif answer == "2":
-        id_ = terminal_view.get_input("Please enter id number: ")
-        crm.remove(table, id_)
-        crm.save_table(table)
-    elif answer == "3":
-        crm.update(table, id_, record)
-    elif answer =="4":
-        crm.get_longest_name_id(table)
-    elif answer =="5":
-        crm.get_subscribed_emails(table)
-    #elif answer == "0":
-        #powrót do main menu - jak to zrobic?
+        if answer == "1":
+            record = terminal_view.get_inputs(["ID: ","Name: ","E-mail: ", "Subscription? Yes/ No"],"Please provide information: \n")
+            common.add(table, record)
+            crm.save_table(table)
+        elif answer == "2":
+            id_ = terminal_view.get_input("Please enter id number: ")
+            common.remove(table, id_)
+            crm.save_table(table)
+        elif answer == "3":
+            common.update(table, id_, record)
+        elif answer =="4":
+            crm.get_longest_name_id(table)
+        elif answer =="5":
+            crm.get_subscribed_emails(table)
+        elif answer == "0":
+            program_works = False
+        else:
+            terminal_view.print_error_message("There is no such choice. Choose from 1 to 5")
     return 
