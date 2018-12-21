@@ -42,7 +42,9 @@ def run():
             common.update(table, id_, record)
             hr.save_table(table)
         elif answer =="4":
-            hr.get_oldest_person(table)
+            print(hr.get_oldest_person(table))
+            # result = hr.get_oldest_person(table)
+            # terminal_view.print_result(result, "Oldest person is: ")
         elif answer == "5":
             hr.get_persons_closest_to_average(table)
         elif answer == "0":

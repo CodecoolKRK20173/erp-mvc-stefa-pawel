@@ -86,14 +86,14 @@ def get_oldest_person(table):
     Returns:
         list: A list of strings (name or names if there are two more with the same value)
     """
-    years = []
+    years = []  # działa ale nie ma print_result w terminal view
     for lists in table:
         years.append(int(lists[2]))
         oldest_person = min(years)
     for lists in table:
-        if oldest_person == lists[2]:
-            return lists
-    # your code
+        if oldest_person == int(lists[2]):
+            return lists[1]
+    
 
 
 def get_persons_closest_to_average(table):

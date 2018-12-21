@@ -51,7 +51,7 @@ def print_table(table, title_list):
         else:
             print("|", line, "|")
             print("|", '-' * dashes, "|")
-    print(dashes_table)
+    
 
 
 def print_result(result, label):
@@ -65,7 +65,10 @@ def print_result(result, label):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
-
+    if result == str:
+        print(result)
+    if result == list:
+        print(result[0])
     # your code
 
 
